@@ -1,0 +1,188 @@
+##################### S-BG-S2 Software module Python challenges #####################
+
+### Created by DE 07/06/23
+
+### Note- you may wish to create a .gitignore file to ignore all input/output .txt files in your Git repository.
+
+### Question 1 ###
+'''
+
+Given a list of genes, e.g. 'MLH1 AHR BRCA2 BRCA1 MLH1 CAT'
+
+    a. Write a function to return an list with the duplicates removed
+
+    b. Write a function to return an list listing all the duplicate entries of the input list
+
+
+'''
+
+
+### Question 2 ###
+'''
+
+A file (Gene_RD.txt) contains 2 columns of comma separated data with read depth values per gene. Write a function to extract the data and return the mean read depth across all genes.
+
+Copy the data below to a file named "Gene_RD.txt" and save in the same directory as your script.
+
+GENE,READ_DEPTH
+MLH1,230
+PMS2,40
+ABL1,50
+PTEN,30
+
+ 
+
+'''
+
+### Question 3 ### 
+'''
+
+Write a script to remove all the duplicate lines from a text file (Gene_RD_rpt.txt).
+Note- you may need to recreate the input file each time this is run. 
+
+Copy the data below to a file named "Gene_RD_rpt.txt" and save in the same directory as your script.
+
+GENE,READ_DEPTH
+MLH1,230
+PMS2,40
+PMS2,40
+ABL1,50
+PTEN,30
+PTEN,30
+PTEN,30
+
+
+'''
+
+
+#### Question 4 ###
+
+'''
+
+Write a function that takes as input integers N and L to generate N million random DNA fragments of length L
+
+'''
+
+### Question 5 ### 
+'''
+
+Write a function which expects, as its input, a dictionary, with names as the keys and ages as the values. The function passes back an dictionary of age averages for people aged 10-20, 20-30, and over 30.
+
+example input_dictionary:
+
+age_dict = {
+    'Hayden Brandt': 10,
+    'Lydia Weiss': 13,
+    'Jadyn Faulkner': 11,
+    'Tatiana Ruiz': 20,
+    'Francesca Burnett': 27,
+    'James Olson': 30,
+    'Aedan Russo': 32,
+    'Shane Key': 55,
+    'Cyrus Rodgers': 60,
+    'Reina Pace': 81
+}
+
+'''
+
+### Question 6 ### 
+'''
+Given a DNA sequence produce the reverse compliment
+
+example input sequence:
+
+'ATGCGTCAGTAAAATTTACG'
+
+'''
+
+### Question 7 ### 
+'''
+Given a list of DNA sequences in align_sequences.txt write a script to determine the number of sequences that match the reference:
+
+REF = 'GATCTAAAAAAAGCCCATACGGCGCGCA'
+
+Copy the data below to a file named "align_sequences.txt" and save in the same directory as your script.
+
+GATCTAAAAAAAGCCCATACGGCGCGCA
+CCTCTAAAAAAAGCCGTTACGGCGCGCA
+CCTCTAAAAAAAGCCGTTACGGCACGCA
+GATCTAAAAAAAGCCCATACGGCGCGCA
+GATCTAAAAAAAGCCCATACGGCGCGCA
+CCTCTTTTAAAAGCCGTTACGGCACGCA
+AATCTGGTAAAAGCCGTTACGGCACCCA
+CCTCTTTTAAAAGCCGTTACGGCACGCA
+AATCTGGTAAAAGCCGTTACGGCACCCA
+CCTCTAAAAAAAGCCGTTACGGCACGCA
+CCTCTTTTAAAAGCCGTTACGGCACGCA
+AATCTGGTAAAAGCCGTTACGGCACCCA
+CCTCTTTTAAAAGCCGTTACGGCACGCA
+GATCTAAAAAAAGCCCATACGGCGCGCA
+AATCTGGTAAAAGCCGTTACGGCACCCA
+CCTCTAAAAAAAGCCGTTACGGCACGCA
+GATCTAAAAAAAGCCCATACGGCGCGCA
+GATCTAAAAAAAGCCCATACGGCGCGCA
+GATCTAAAAAAAGCCCATACGGCGCGCA
+GATCTAAAAAAAGCCCATACGGCGCGCA
+
+'''
+
+### Question 8 (Rosalind question) ### 
+'''
+
+A string is simply an ordered collection of symbols selected from some alphabet and formed into a word; the length of a string is the number of symbols that it contains.
+
+An example of a length 21 DNA string (whose alphabet contains the symbols 'A', 'C', 'G', and 'T') is "ATGCTTCAGAAAGGTCTTACG."
+
+Given: A DNA string s of length at most 1000 nt.
+
+Return: Four integers (separated by spaces) counting the respective number of times that the symbols 'A', 'C', 'G', and 'T' occur in s
+.
+
+test = 'AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC'
+
+'''
+
+### Question 9 (Rosalind question) ###
+''' 
+An RNA string is a string formed from the alphabet containing 'A', 'C', 'G', and 'U'.
+
+Given a DNA string t corresponding to a coding strand, its transcribed RNA string u is formed by replacing all occurrences of 'T' in t with 'U' in u.
+
+Given: A DNA string t having length at most 1000 nt.
+
+Return: The transcribed RNA string of t
+
+test = 'GATGGAACTTGACTACGTAAATT'
+
+'''
+
+### Question 10 (Rosalind question) ### 
+
+'''
+The GC-content of a DNA string is given by the percentage of symbols in the string that are 'C' or 'G'. For example, the GC-content of "AGCTATAG" is 37.5%. Note that the reverse complement of any DNA string has the same GC-content.
+
+DNA strings must be labeled when they are consolidated into a database. A commonly used method of string labeling is called FASTA format. In this format, the string is introduced by a line that begins with '>', followed by some labeling information. Subsequent lines contain the string itself; the first line to begin with '>' indicates the label of the next string.
+
+In Rosalind's implementation, a string in FASTA format will be labeled by the ID "Rosalind_xxxx", where "xxxx" denotes a four-digit code between 0000 and 9999.
+
+Given: At most 10 DNA strings in FASTA format (of length at most 1 kbp each).
+
+Return: The ID of the string having the highest GC-content, followed by the GC-content of that string. Rosalind allows for a default error of 0.001 in all decimal answers unless otherwise stated; please see the note on absolute error below.
+
+Copy the data below to a file named "Rosalind_GC.txt" and save in the same directory as your script.
+
+>Rosalind_6404
+CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCCTCCCACTAATAATTCTGAGG
+>Rosalind_5959
+CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGACACGC
+>Rosalind_0808
+CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT
+
+'''
+
+### Question 11 ### 
+'''
+Write a function to generate checksums (MD5sum) of files contained within a given direcroy. You must use the os module to generate the checksums.  
+The function must accept a path to an input directory (as a string), calculate the checksums and save the checksums generated to a new file.
+
+'''
