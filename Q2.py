@@ -19,9 +19,12 @@ def calculate_mean_read_depth():
     sum_read_depth=0
     num_genes=0
     for line in file:
-        gene, read_depth=line.strip().split(",")
-        sum_read_depth+=int(read_depth)
-        num_genes+=1
+        if line == "GENE,READ_DEPTH\n":
+           pass
+        else:
+            gene, read_depth=line.strip().split(",")
+            sum_read_depth+=int(read_depth)
+            num_genes+=1
 
     mean_read_depth = sum_read_depth/num_genes
     return mean_read_depth
