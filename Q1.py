@@ -13,19 +13,23 @@ Given a list of genes, e.g. 'MLH1 AHR BRCA2 BRCA1 MLH1 CAT'
 
 
 '''
-# with open("genes.txt", "r") as list:
-#     print(list)
-#     GenesSet={}
-#     for genes in list:
-#         GenesSet=set((genes))
-# print(GenesSet)
-# print(len(GenesSet))
-
+#opens the file using a with loop to close correctly after finishing
 with open("genes.txt", "r") as file:
+    #reads the file and splits it, removing any spaces
     genes_list = file.read().split()
+    #changes the list into a set to easily remove the duplicates as sets dont allow dups.
     genes_set = set(genes_list)
 
 # print(genes_set)
 print("there are",len(genes_set),"unique genes in this set. which are listed as",(genes_set),)
+
+duplicates=[]
+singles=[]
+for genes in genes_list:
+    if genes in singles:
+        duplicates.append(genes)
+    else:
+        singles.append(genes)
+print(singles,duplicates)
 
 
