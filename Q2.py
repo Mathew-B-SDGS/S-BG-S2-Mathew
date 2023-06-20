@@ -14,6 +14,10 @@ PTEN,30
 
  
 '''
+
+import csv
+import statistics
+
 def calculate_mean_read_depth():
  with open ("genes.txt") as file:
     sum_read_depth=0
@@ -31,3 +35,13 @@ def calculate_mean_read_depth():
  
 a=calculate_mean_read_depth()
 print(a)
+
+def calculate_mean_read_depth_2():
+ with open ("genes.txt") as file:
+    reader = csv.DictReader(file)
+    rows = [row for row in reader]
+    return statistics.mean([int(row['READ_DEPTH']) for row in rows])
+ 
+a=calculate_mean_read_depth()
+print(a)
+print(calculate_mean_read_depth_2())
