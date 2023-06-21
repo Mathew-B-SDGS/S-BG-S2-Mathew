@@ -1,29 +1,21 @@
-# Question 7
-def alignment(target):
-    counter = 0
-    with open("genes.txt", "r") as file:
-        lines = file.readlines()
-        for line in lines:
-            if line.strip() == target:
-                counter += 1
-    return counter
+### Question 8 (Rosalind question) ### 
+'''
 
-REF = 'GATCTAAAAAAAGCCCATACGGCGCGCA'
-print(alignment(REF))
+A string is simply an ordered collection of symbols selected from some alphabet and formed into a word; the length of a string is the number of symbols that it contains.
 
-# Question 8
-def alignment_score(target):
-    score = 0
-    with open("genes.txt", "r") as file:
-        lines = file.readlines()
-        num_lines = len(lines)
-        for line in lines:
-            for steps in range(len(line) - len(target) + 1):
-                substring = line[steps : steps + len(target)]
-                if substring == target:
-                    score += steps
-    percent_value = score / (len(target) * num_lines)
-    return percent_value
+An example of a length 21 DNA string (whose alphabet contains the symbols 'A', 'C', 'G', and 'T') is "ATGCTTCAGAAAGGTCTTACG."
 
-REF = "GATCTAAAAAAAGCCCATACGGCGCGCA"
-print(alignment_score(REF))
+Given: A DNA string s of length at most 1000 nt.
+
+Return: Four integers (separated by spaces) counting the respective number of times that the symbols 'A', 'C', 'G', and 'T' occur in s
+.
+
+test = 'AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC'
+
+'''
+def char_count(test):
+    count = {"A": 0, "T": 0, "C": 0, "G": 0}
+    for base in test:
+        count[base] += 1
+    return count
+
