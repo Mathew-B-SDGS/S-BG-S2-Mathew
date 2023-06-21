@@ -8,16 +8,19 @@ example input sequence:
 
 '''
 
-def reverse_compliment(input):
-    key={
-        "A":"T",
-        "C":"G",
-        "T":"A",
-        "G":"C"
+def reverse_complement(input_seq):
+    key = {
+        "A": "T",
+        "C": "G",
+        "T": "A",
+        "G": "C"
     }
-    for base in input:
-        compliment_base= key[base]
-        reversed_strand=""
-        reversed_strand+=compliment_base
 
-print(reverse_compliment("ATGCGTCAGTAAAATTTACG"))
+    reversed_seq = ""
+    for base in input_seq:
+        complement_base = key[base]
+        reversed_seq = complement_base + reversed_seq
+
+    return reversed_seq
+
+print(reverse_complement("ATGCGTCAGTAAAATTTACG"))
