@@ -21,7 +21,7 @@ PTEN,30
 
 '''
 
-file_name = "genes.txt"
+file_name = "GitHub/S-BG-S2-Mathew/genes.txt"
 
 def remove_dup():
     with open(file_name, "r") as file:
@@ -33,3 +33,7 @@ def remove_dup():
     # write out 
     with open(file_name, "w") as file:
         file.writelines(unique_lines)
+
+remove_dup()
+
+poo
