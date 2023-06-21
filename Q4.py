@@ -4,33 +4,24 @@
 Write a function that takes as input integers N and L to generate N million random DNA fragments of length L
 
 '''
-#N number of short reads, 
-#L length of the short reads.
- 
 import random
 
-def generator(L,N):
-    BaseCoding={1:"A",2:"T",3:"C",4:"G"}
-    Read=""
-    Nillion=int(N)*100000
-    with open("seq.fastq","w") as file:
-        for number in range(Nillion):
-            Read = "\n@ReadNumber" + str(number) + "\n"
-            for length in range(L):
-                BaseRandom=(random.randint(1,4))
-                Read+=BaseCoding[BaseRandom]
-            file.write(Read)
+# N: number of short reads
+# L: length of the short reads
+def generator(length, number):
+    base_coding = "ATCG"  #  DNA bases
+    read = ""  # Variable to store  read
+    n_million = int(number) * 100000  # Total number of reads to generate times a million 
+    
+    with open("seq.fastq", "w") as file:  # Open a file for writing, choose to format this into a FASTA. 
+        for number in range(n_million):  # Generate reads based on the total number
+            read = "\n>ReadNumber" + str(number) + "\n"  # Identifier for the read in fasta format
+            for length_read in range(length):  # Generate the sequence of the read
+                base_random = random.randint(0, 3)  # Generate a random index for the base using the random module. 
+                read += base_coding[base_random]  # Add the randomly selected base to the read
+            file.write(read)  # Write the read to the file
+
+# Example usage
+generator(100, 10)  # Generate 10*1,000,000 short reads of length 100bp
 
 
-print(generator(50,5))
-
-
-
-
-'''
-make a range of N 
-loop through the range 
-make a header based on N 
-for range of L 
-random base 
-'''
