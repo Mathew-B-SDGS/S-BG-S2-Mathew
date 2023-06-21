@@ -40,7 +40,16 @@ def avg_age_func(age_dict):
             age_over_30 += 1
             sum_over_30 += value
 
-    return_dict = {'avg10_20':sum_age_10_20/age_10_20,'avg20_39':sum_age_20_30/age_20_30,'avg_30':sum_over_30/age_over_30}
+    return_dict = {
+        'avg10_20':sum_age_10_20/age_10_20,
+        'avg20_39':sum_age_20_30/age_20_30,
+        'avg_30':sum_over_30/age_over_30
+                   }
+    
     return(return_dict)
 
 print(avg_age_func(age_dict1))
+
+
+##
+
