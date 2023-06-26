@@ -39,7 +39,7 @@ class dna:
             return self.sequence.count(nucleotide)
 
 sequence1 = dna("ATCG",">1")
-print(sequence1.char_count(),sequence1.calculate_gc(),sequence1.reverse_complementV())
+print(sequence1.char_count(),sequence1.calculate_gc(),sequence1.reverse_complementV1())
 
 class  dna_test_case(unittest.TestCase):
     def setUp(self):
@@ -69,3 +69,6 @@ class  dna_test_case(unittest.TestCase):
 
 suite = unittest.TestLoader().loadTestsFromTestCase(dna_test_case)
 unittest.TextTestRunner().run(suite)
+
+if __name__ == '__main__':
+    unittest.main()
