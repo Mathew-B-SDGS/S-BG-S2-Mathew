@@ -21,19 +21,27 @@ PTEN,30
 
 '''
 
-file_name = "GitHub/S-BG-S2-Mathew/genes.txt"
+file_name = "Gene_RD_rpt.txt"
 
-def remove_dup():
+def remove_dup(file_name, new_file_name):
+    '''
+    function takes and 2 inputs: the target file path, and the output file name
+    returns the values into a new file 
+    '''
     with open(file_name, "r") as file:
         lines = file.readlines()
 
-    # Remove duplicates
-    unique_lines = list(set(lines))
+    unique_lines = []
+    unique_lines.append(lines[0])  # Add the header line as the first line in the unique lines list
 
-    # write out 
-    with open(file_name, "w") as file:
-        file.writelines(unique_lines)
+    # Iterate through each line starting from the second line
+    for line in lines[1:]:
+        if line not in unique_lines:  # Check if the line is not already present in the unique lines list
+            unique_lines.append(line)  # Add the line to the unique lines list
 
-remove_dup()
+    # Open the file in write mode to overwrite the content
+    with open(new_file_name, "w") as file:
+        file.writelines(unique_lines)  # Write the unique lines to the file
 
-poo
+remove_dup(file_name)
+

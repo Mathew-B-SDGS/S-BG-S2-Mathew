@@ -37,7 +37,8 @@ def alignment(target):
     counter = 0
     with open("genes.txt", "r") as file:
         lines = file.readlines()#open files and add them to lines
-        for line in lines:#loop in the lines 
+        for line in lines:#loop in the lines
+            #removes the new line character from the string as it prevents it matching. 
             line=line.rstrip("\n")
             #print(line)
             if line == target:#check to see if theres a match, even with escape character 
@@ -47,19 +48,5 @@ def alignment(target):
 print(alignment(REF))
 
 
-def alignment_score(target):
-    score = 0
-    with open("genes.txt", "r") as file:
-        lines = file.readlines()
-        num_lines = len(lines)
-        for line in lines:
-            line = line.strip()  # Remove trailing newline character
-            for steps in range(len(line) - len(target) + 1):
-                substring = line[steps : steps + len(target)]
-                if substring == target:
-                    score += 1  # Increase score by 1 for each match
-    percent_value = score / num_lines  # Calculate alignment percentage
-    return percent_value
 
-print(alignment_score(REF))
 

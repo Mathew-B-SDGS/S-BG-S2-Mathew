@@ -9,6 +9,9 @@ example input sequence:
 '''
 
 def reverse_complement(input_seq):
+    '''
+    function takes an input sequence in the form of a string and then returns the complimentary strand. 
+    '''
     key = {
         "A": "T",
         "C": "G",
@@ -18,6 +21,7 @@ def reverse_complement(input_seq):
 
     reversed_seq = ""
     for base in input_seq:
+        #uses the key above to return the complimentary base and at to the variable storing the new strand. 
         complement_base = key[base]
         reversed_seq = complement_base + reversed_seq
 

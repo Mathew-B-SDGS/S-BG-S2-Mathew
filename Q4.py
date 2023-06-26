@@ -6,19 +6,23 @@ Write a function that takes as input integers N and L to generate N million rand
 '''
 import random
 
-# N: number of short reads
-# L: length of the short reads
+
 def generator(length, number):
-    base_coding = "ATCG"  #  DNA bases
+    '''
+    function that takes input variable of #number for the amount of total reads and 
+    #length of the amount of bases per reads. amplifies the inputted number value by a million. 
+    writes out to a fasta file, in the correct format. 
+    '''
+    base_coding = "ATCG"  #  DNA bases in a string to be easily accessed. 
     read = ""  # Variable to store  read
     n_million = int(number) * 100000  # Total number of reads to generate times a million 
     
-    with open("seq.fastq", "w") as file:  # Open a file for writing, choose to format this into a FASTA. 
+    with open("seq.txt", "w") as file:  # Open/creates a file for writing. 
         for number in range(n_million):  # Generate reads based on the total number
-            read = "\n>ReadNumber" + str(number) + "\n"  # Identifier for the read in fasta format
-            for length_read in range(length):  # Generate the sequence of the read
-                base_random = random.randint(0, 3)  # Generate a random index for the base using the random module. 
-                read += base_coding[base_random]  # Add the randomly selected base to the read
+            read = "\n>ReadNumber" + str(number) + "\n"  # creates a Unique Identifier for each short read in fasta format, with a line break added. 
+            for length_read in range(length):  
+                base_random = random.randint(0, 3)  # Generate a random index for the base using the random module. numbers 0,1,2,3 are randomly chosen. 
+                read += base_coding[base_random]  # this randomly chosen value is then used to index the string 'ATCG' adding a random base to the sequence.  
             file.write(read)  # Write the read to the file
 
 # Example usage

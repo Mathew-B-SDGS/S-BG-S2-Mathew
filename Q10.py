@@ -21,3 +21,24 @@ CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCTATATCCATTTGTCAGCAGAC
 CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT
 
 '''
+
+def highest_gc():
+    with open("seq1.txt", "r") as file:
+        data = file.readlines()
+        dict_gc = {}
+        for i, lines in enumerate(data):
+            if lines.startswith(">",):
+                id = lines.strip(">Rosalind_\n")
+                next_line = data[i + 1] 
+                gc_count = next_line.count('G') + next_line.count('C')
+                total_count = len(next_line)
+                gc_content = (gc_count / total_count) * 100
+                dict_gc.update({id: gc_content})
+        max_gc = max(dict_gc, key=dict_gc.get)
+        return max_gc, dict_gc[max_gc]
+
+
+print(highest_gc())
+
+
+

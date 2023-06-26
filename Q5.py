@@ -21,6 +21,10 @@ age_dict1 = {
 
 
 def avg_age_func(age_dict):
+    '''
+    function takes a dict and returns the average age within each age category in a new dict
+    '''
+    # all the below are just empty variables. 
     age_10_20 = 0
     sum_age_10_20 = 0
     age_20_30 = 0
@@ -28,6 +32,7 @@ def avg_age_func(age_dict):
     age_over_30 = 0
     sum_over_30 = 0
 
+    # loop over every value in dict, seeing if age value fits into each section. age added to a variable, counter then used to calculate average. 
     for key in age_dict:
         value = age_dict[key]
         if value >= 10 and value < 20:

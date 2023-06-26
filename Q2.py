@@ -19,6 +19,11 @@ import csv
 import statistics
 
 def calculate_mean_read_depth():
+ '''
+ function that opens a file,  skips any header line. then splits each line into 2 variables, gene and read depth, striping the CSV. 
+ checks that the read depth is an int before adding the to a sum value divided by the total genes. 
+ returns the average read depth in the file. 
+ '''
  with open ("genes.txt") as file:
     sum_read_depth=0
     num_genes=0
@@ -26,6 +31,7 @@ def calculate_mean_read_depth():
         if line == "GENE,READ_DEPTH\n":
            pass
         else:
+            #CSV within file, strip and split returns values from string using the , as a separator.
             gene, read_depth=line.strip().split(",")
             sum_read_depth+=int(read_depth)
             num_genes+=1
@@ -33,15 +39,19 @@ def calculate_mean_read_depth():
     mean_read_depth = sum_read_depth/num_genes
     return mean_read_depth
  
-a=calculate_mean_read_depth()
-print(a)
 
-def calculate_mean_read_depth_2():
+
+def calculate_mean_read_depth_v2():
+ '''
+ this function makes use oft he csv and statistics module to perform the above calculation in a more succinct manner. 
+ the csv function allows the parsing of a file simply, with the statistics module easily returning the mean value from the table created by csv. 
+ '''
  with open ("genes.txt") as file:
     reader = csv.DictReader(file)
+    #places the data into a variable
     rows = [row for row in reader]
+    #calls the function the mean value from statistics on all values in the data structure, ensuring value is an int. 
     return statistics.mean([int(row['READ_DEPTH']) for row in rows])
  
-a=calculate_mean_read_depth()
-print(a)
-print(calculate_mean_read_depth_2())
+
+print(calculate_mean_read_depth(), calculate_mean_read_depth_v2())
