@@ -20,16 +20,15 @@ class dna:
                 rna_string+=base
         return rna_string
 
-    def reverse_complement(self):
+    def reverse_complementV1(self):
         key = { "A": "T", "C": "G", "T": "A", "G": "C" }
         reversed_seq = ""
         for base in self.sequence:
             complement_base = key[base]
-            reversed_seq = complement_base + reversed_seq
+            reversed_seq += complement_base
         return reversed_seq
     
     def calculate_gc(self):
-        dict_gc = {}
         gc_count = self.sequence.count('G') + self.sequence.count('C')
         total_count = len(self.sequence)
         gc_percent = ((gc_count / total_count) * 100)
@@ -39,14 +38,12 @@ class dna:
     def count_nucleotide(self, nucleotide):
             return self.sequence.count(nucleotide)
 
-sequence1 = dna("ATCGATCG",">1")
-#print(sequence1.char_count())
-#print(sequence1.calculate_gc())
-
+sequence1 = dna("ATCG",">1")
+print(sequence1.char_count(),sequence1.calculate_gc(),sequence1.reverse_complementV())
 
 class  dna_test_case(unittest.TestCase):
     def setUp(self):
-        self.dna=dna("ATCG")
+        self.dna=dna("ATCG",">1")
     def tearDown(self):
         pass
     def test_char_count(self):
@@ -56,15 +53,18 @@ class  dna_test_case(unittest.TestCase):
     def test_count_nucleotide(self):
         result= self.dna.count_nucleotide("A")
         self.assertEqual(result, 1)
-
-
-
-# suite = unittest.TestSuite()
-#suite.addTest(dna_test_case("test_count_nucleotide"))
-# suite.addTest(dna_test_case("test_chat_count"))
-# unittest.TextTestResult().run(suite)
-
-
+    def test_transcribe(self):
+        result=self.dna.rna_transcribe()
+        expected_result="AUCG"
+        self.assertEqual(result,expected_result)
+    def test_calculate_gc(self):
+        result=self.dna.calculate_gc()
+        expected_result=">1,GC=50.0%"
+        self.assertEqual(result,expected_result)
+    def test_reverse_complement(self):
+        result=self.dna.reverse_complementV1()
+        expected_result="TAGC"
+        self.assertEqual(result,expected_result)
 
 
 suite = unittest.TestLoader().loadTestsFromTestCase(dna_test_case)
