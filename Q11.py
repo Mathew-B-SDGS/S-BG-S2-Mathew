@@ -28,21 +28,9 @@ def check(input_directory):
             print(err_msg)
         md5file+=out_string
     print(md5file)
-    print("poo")
+    with open("output.txt", "a+") as o_file:
+        o_file.write(md5file)
+
 check('./S-BG-S2-Mathew/')
-
-# proc = subprocess.Popen(['echo', name],
-#                             stdin = subprocess.PIPE,
-#                             stdout = subprocess.PIPE,
-#                             stderr = subprocess.PIPE
-#                         )
-
-# (out, err) = proc.communicate()
-
-
-'''
-def (filepath)
-os.path
-
-'''
+#Comment and add a write out to the directory file. 
 

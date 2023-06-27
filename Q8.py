@@ -13,6 +13,7 @@ Return: Four integers (separated by spaces) counting the respective number of ti
 test = 'AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC'
 
 '''
+
 def char_count(test):
     count = {"A": 0, "T": 0, "C": 0, "G": 0}
     for base in test:
